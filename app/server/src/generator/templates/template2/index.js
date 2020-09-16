@@ -53,6 +53,7 @@ const generator: Template2Generator = {
       ${nameLine}
       \\vspace{2mm}
       ${info}
+      \\vspace{6mm}
       \\end{center}
     `
   },
@@ -108,7 +109,6 @@ const generator: Template2Generator = {
       })}
       \\end{cventries}
 
-      \\vspace{-2mm}
     `
   },
 

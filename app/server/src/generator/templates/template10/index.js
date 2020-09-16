@@ -57,6 +57,7 @@ const generator: template10Generator = {
     return source`
       %%% Education
       %%% ------------------------------------------------------------
+      \\vspace*{6pt}
       \\NewPart{${heading || 'Education'}}{}
       ${education.map((school, i) => {
         const {
@@ -101,7 +102,7 @@ const generator: template10Generator = {
         return stripIndent`
           \\EducationEntry
             {${degreeLine}}
-            {${dateRange || ''}}
+            {${dateRange}}
             {${nameLine}}
             ${i < lastSchoolIndex ? '\\sepspace' : ''}
         `
@@ -175,7 +176,7 @@ const generator: template10Generator = {
       \\NewPart{${heading || 'Skills'}}{}
       ${skills.map(skill => {
         const { name, keywords = [] } = skill
-        return `\\SkillsEntry{${name || ''}}{${keywords.join(', ')}}\\sepspace`
+        return `\\SkillsEntry{${name || ''}}{${keywords.join(', ')}}\\sepspace\\vspace*{-2pt}`
       })}
     `
   },
@@ -216,7 +217,6 @@ const generator: template10Generator = {
       %%% Awards
       %%% ------------------------------------------------------------
       \\NewPart{${heading || 'Awards'}}{}
-
       ${awards.map((award, i) => {
         const { title, summary, date, awarder } = award
 
@@ -225,8 +225,10 @@ const generator: template10Generator = {
           {${date || ''}}
           {${summary || ''}}
           ${i < lastAwardIndex ? '\\sepspace' : ''}
+          \\vspace*{-14pt}
         `
       })}
+      \\vspace*{10pt}
     `
   },
 
